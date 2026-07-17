@@ -320,6 +320,11 @@
         "category": "Telematics"
     },
     {
+        "code": "TRSKM",
+        "name": "Steering Knob",
+        "category": "Telematics"
+    },
+    {
         "code": "TTM",
         "name": "Trailer Tow Module",
         "category": "Trailer"
