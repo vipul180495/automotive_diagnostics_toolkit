@@ -1,0 +1,140 @@
+[
+    {
+        "sid": "10",
+        "service": "Diagnostic Session Control",
+        "subfunctions": [
+            {
+                "id": "01",
+                "name": "Default Session"
+            },
+            {
+                "id": "02",
+                "name": "Programming Session"
+            },
+            {
+                "id": "03",
+                "name": "Extended Diagnostic Session"
+            }
+        ]
+    },
+    {
+        "sid": "11",
+        "service": "ECU Reset",
+        "subfunctions": [
+            {
+                "id": "01",
+                "name": "Hard Reset"
+            },
+            {
+                "id": "02",
+                "name": "Key Off Reset"
+            },
+            {
+                "id": "03",
+                "name": "Soft Reset"
+            }
+        ]
+    },
+    {
+        "sid": "27",
+        "service": "Security Access",
+        "subfunctions": [
+            {
+                "id": "01",
+                "name": "Request Seed"
+            },
+            {
+                "id": "02",
+                "name": "Send Key"
+            }
+        ]
+    },
+    {
+        "sid": "28",
+        "service": "Communication Control",
+        "subfunctions": [
+            {
+                "id": "00",
+                "name": "Enable Normal Communication"
+            },
+            {
+                "id": "01",
+                "name": "Enable Network Management Communication"
+            },
+            {
+                "id": "02",
+                "name": "Enable Normal + Network Management Communication"
+            },
+            {
+                "id": "03",
+                "name": "Disable Normal Communication"
+            },
+            {
+                "id": "04",
+                "name": "Disable Network Management Communication"
+            },
+            {
+                "id": "05",
+                "name": "Disable Normal + Network Management Communication"
+            }
+        ]
+    },
+    {
+        "sid": "31",
+        "service": "Routine Control",
+        "subfunctions": [
+            {
+                "id": "01",
+                "name": "Start Routine"
+            },
+            {
+                "id": "02",
+                "name": "Stop Routine"
+            },
+            {
+                "id": "03",
+                "name": "Request Routine Results"
+            }
+        ]
+    },
+    {
+        "sid": "85",
+        "service": "Control DTC Setting",
+        "subfunctions": [
+            {
+                "id": "01",
+                "name": "Enable DTC Setting"
+            },
+            {
+                "id": "02",
+                "name": "Disable DTC Setting"
+            }
+        ]
+    },
+    {
+        "sid": "19",
+        "service": "Read DTC Information",
+        "subfunctions": [
+            {
+                "id": "01",
+                "name": "Report DTC By Status Mask"
+            },
+            {
+                "id": "02",
+                "name": "Report DTC By Severity/Status Mask"
+            },
+            {
+                "id": "04",
+                "name": "Report DTC Snapshot Identification"
+            },
+            {
+                "id": "06",
+                "name": "Report DTC Availability Mask"
+            },
+            {
+                "id": "07",
+                "name": "Report Supported DTCs"
+            }
+        ]
+    }
+]

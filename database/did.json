@@ -1,0 +1,90 @@
+[
+    {
+        "did": "F190",
+        "name": "Vehicle Identification Number (VIN)",
+        "category": "ISO Standard",
+        "oem": "All OEM",
+        "length": "17 Bytes",
+        "access": "Read Only",
+        "description": "Unique vehicle identification number assigned by manufacturer.",
+        "example": "1HGCM82633A004352",
+        "ecu": "BCM / Gateway / ECM"
+    },
+    {
+        "did": "F187",
+        "name": "Vehicle Manufacturer Spare Part Number",
+        "category": "ISO Standard",
+        "oem": "All OEM",
+        "length": "Variable",
+        "access": "Read Only",
+        "description": "ECU hardware or spare part number.",
+        "example": "1234567890",
+        "ecu": "ECU"
+    },
+    {
+        "did": "F188",
+        "name": "Vehicle Manufacturer ECU Software Number",
+        "category": "ISO Standard",
+        "oem": "All OEM",
+        "length": "Variable",
+        "access": "Read Only",
+        "description": "Software identification programmed into ECU.",
+        "example": "SW_12345678",
+        "ecu": "ECU"
+    },
+    {
+        "did": "F189",
+        "name": "ECU Software Version Number",
+        "category": "ISO Standard",
+        "oem": "All OEM",
+        "length": "Variable",
+        "access": "Read Only",
+        "description": "Current ECU software version.",
+        "example": "V1.23.45",
+        "ecu": "ECU"
+    },
+    {
+        "did": "F18C",
+        "name": "ECU Serial Number",
+        "category": "ISO Standard",
+        "oem": "All OEM",
+        "length": "Variable",
+        "access": "Read Only",
+        "description": "Unique ECU manufacturing serial number.",
+        "example": "SN123456789",
+        "ecu": "ECU"
+    },
+    {
+        "did": "F181",
+        "name": "Application Data Identification",
+        "category": "OEM Specific",
+        "oem": "Multiple OEM",
+        "length": "Variable",
+        "access": "Read Only",
+        "description": "Identification information for ECU application data. Content depends on OEM implementation.",
+        "example": "APP_DATA_ID_001",
+        "ecu": "ECU"
+    },
+    {
+        "did": "F132",
+        "name": "ECU Data Identification",
+        "category": "OEM Specific",
+        "oem": "Multiple OEM",
+        "length": "Variable",
+        "access": "Read Only",
+        "description": "OEM-specific ECU identification data used for software, calibration, or configuration information.",
+        "example": "ECU_DATA_001",
+        "ecu": "ECU"
+    },
+    {
+        "did": "F1A0",
+        "name": "ECU Configuration Data",
+        "category": "OEM Specific",
+        "oem": "Stellantis",
+        "length": "Variable",
+        "access": "Read / Write",
+        "description": "Configuration information stored inside ECU.",
+        "example": "Configuration Block",
+        "ecu": "BCM"
+    }
+]

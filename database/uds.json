@@ -1,0 +1,135 @@
+[
+    {
+        "sid": "10",
+        "name": "Diagnostic Session Control",
+        "description": "Switch between different diagnostic sessions.",
+        "request": "10 XX",
+        "positiveResponse": "50 XX"
+    },
+    {
+        "sid": "11",
+        "name": "ECU Reset",
+        "description": "Reset the ECU (hard reset, soft reset, key off reset).",
+        "request": "11 XX",
+        "positiveResponse": "51 XX"
+    },
+    {
+        "sid": "14",
+        "name": "Clear Diagnostic Information",
+        "description": "Clear stored Diagnostic Trouble Codes from ECU memory.",
+        "request": "14 FF FF FF",
+        "positiveResponse": "54"
+    },
+    {
+        "sid": "19",
+        "name": "Read DTC Information",
+        "description": "Read diagnostic trouble codes stored inside ECU.",
+        "request": "19 XX",
+        "positiveResponse": "59 XX"
+    },
+    {
+        "sid": "22",
+        "name": "Read Data By Identifier",
+        "description": "Read ECU data using a unique Data Identifier (DID).",
+        "request": "22 DID_H DID_L",
+        "positiveResponse": "62 DID_H DID_L DATA"
+    },
+    {
+        "sid": "23",
+        "name": "Read Memory By Address",
+        "description": "Read data directly from ECU memory address.",
+        "request": "23 Address Length",
+        "positiveResponse": "63 DATA"
+    },
+    {
+        "sid": "24",
+        "name": "Read Scaling Data By Identifier",
+        "description": "Read scaling information required for interpreting ECU data.",
+        "request": "24 DID",
+        "positiveResponse": "64 DATA"
+    },
+    {
+        "sid": "27",
+        "name": "Security Access",
+        "description": "Gain access to protected ECU functions using seed-key authentication.",
+        "request": "27 SubFunction",
+        "positiveResponse": "67 SubFunction DATA"
+    },
+    {
+        "sid": "28",
+        "name": "Communication Control",
+        "description": "Control ECU communication behavior.",
+        "request": "28 SubFunction",
+        "positiveResponse": "68 SubFunction"
+    },
+    {
+        "sid": "2E",
+        "name": "Write Data By Identifier",
+        "description": "Write data into ECU using DID.",
+        "request": "2E DID DATA",
+        "positiveResponse": "6E DID"
+    },
+    {
+        "sid": "2F",
+        "name": "Input Output Control By Identifier",
+        "description": "Control ECU input/output functions.",
+        "request": "2F DID Parameter",
+        "positiveResponse": "6F DID"
+    },
+    {
+        "sid": "31",
+        "name": "Routine Control",
+        "description": "Start, stop or request results of ECU routines.",
+        "request": "31 SubFunction RoutineID",
+        "positiveResponse": "71 SubFunction RoutineID"
+    },
+    {
+        "sid": "34",
+        "name": "Request Download",
+        "description": "Start ECU software download procedure.",
+        "request": "34 DataFormat Address Length",
+        "positiveResponse": "74"
+    },
+    {
+        "sid": "35",
+        "name": "Request Upload",
+        "description": "Start ECU data upload procedure.",
+        "request": "35 DataFormat Address Length",
+        "positiveResponse": "75"
+    },
+    {
+        "sid": "36",
+        "name": "Transfer Data",
+        "description": "Transfer data during programming.",
+        "request": "36 BlockSequenceCounter DATA",
+        "positiveResponse": "76"
+    },
+    {
+        "sid": "37",
+        "name": "Request Transfer Exit",
+        "description": "Terminate file/data transfer.",
+        "request": "37",
+        "positiveResponse": "77"
+    },
+    {
+        "sid": "3E",
+        "name": "Tester Present",
+        "description": "Keep diagnostic session alive.",
+        "request": "3E 00",
+        "positiveResponse": "7E 00"
+    },
+    {
+        "sid": "83",
+        "name": "Access Timing Parameters",
+        "description": "Read or modify diagnostic timing parameters.",
+        "request": "83 SubFunction",
+        "positiveResponse": "C3"
+    },
+    {
+        "sid": "85",
+        "name": "Control DTC Setting",
+        "description": "Enable or disable DTC storage.",
+        "request": "85 SubFunction",
+        "positiveResponse": "C5"
+    }
+]

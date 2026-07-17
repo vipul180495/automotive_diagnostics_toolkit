@@ -1,0 +1,342 @@
+[
+    {
+        "code": "ADCM",
+        "name": "Active Damping Control Module",
+        "category": "Chassis"
+    },
+    {
+        "code": "AGSM",
+        "name": "Automatic Gearbox Shifter Module",
+        "category": "Powertrain"
+    },
+    {
+        "code": "ALM",
+        "name": "Ambient Light Module",
+        "category": "Body"
+    },
+    {
+        "code": "AMP12",
+        "name": "Amplifier (12 Channel)",
+        "category": "Infotainment"
+    },
+    {
+        "code": "AMP17",
+        "name": "Amplifier (17 Channel)",
+        "category": "Infotainment"
+    },
+    {
+        "code": "AMP24",
+        "name": "Amplifier (24 Channel)",
+        "category": "Infotainment"
+    },
+    {
+        "code": "ASCM",
+        "name": "Air Suspension Control Module",
+        "category": "Chassis"
+    },
+    {
+        "code": "BCM",
+        "name": "Body Controller Module",
+        "category": "Body"
+    },
+    {
+        "code": "BPCM",
+        "name": "Battery Pack Control Module",
+        "category": "EV / Battery"
+    },
+    {
+        "code": "BSCM",
+        "name": "Brake System Module",
+        "category": "Brake"
+    },
+    {
+        "code": "BSCM2",
+        "name": "Brake System Module 2",
+        "category": "Brake"
+    },
+    {
+        "code": "CADM_LO",
+        "name": "Central ADAS Decision Module (Low)",
+        "category": "ADAS"
+    },
+    {
+        "code": "CADM_MID",
+        "name": "Central ADAS Decision Module (Mid)",
+        "category": "ADAS"
+    },
+    {
+        "code": "CADM2_MAP",
+        "name": "Central ADAS Decision Module 2 (Map)",
+        "category": "ADAS"
+    },
+    {
+        "code": "CCDMF",
+        "name": "Comfort and Convenience Display Module Front",
+        "category": "Body / Display"
+    },
+    {
+        "code": "CCDMR",
+        "name": "Comfort and Convenience Display Module Rear",
+        "category": "Body / Display"
+    },
+    {
+        "code": "CVPAM_XAK",
+        "name": "Central Vision Park Assist Module",
+        "category": "ADAS"
+    },
+    {
+        "code": "DCSD_12IN",
+        "name": "Disassociated Center Stack Display (12 inch)",
+        "category": "Infotainment"
+    },
+    {
+        "code": "DDM",
+        "name": "Driver Door Module",
+        "category": "Body"
+    },
+    {
+        "code": "DMSM",
+        "name": "Driver Monitoring System Module",
+        "category": "ADAS"
+    },
+    {
+        "code": "DTCM",
+        "name": "Drive Train Control Module",
+        "category": "Powertrain"
+    },
+    {
+        "code": "EPS",
+        "name": "Electric Power Steering",
+        "category": "Chassis"
+    },
+    {
+        "code": "ETM",
+        "name": "Enhanced Telematics Module",
+        "category": "Telematics"
+    },
+    {
+        "code": "EVCU2",
+        "name": "Electronic Vehicle Control Unit 2",
+        "category": "EV"
+    },
+    {
+        "code": "FLDHM",
+        "name": "Front Left Door Handle Module",
+        "category": "Body"
+    },
+    {
+        "code": "FPDM",
+        "name": "Front Passenger Display Module",
+        "category": "Infotainment"
+    },
+    {
+        "code": "FRDHM",
+        "name": "Front Right Door Handle Module",
+        "category": "Body"
+    },
+    {
+        "code": "FSM",
+        "name": "Folding Seat Module",
+        "category": "Body"
+    },
+    {
+        "code": "GNMM",
+        "name": "Global Navigation and Motion Module",
+        "category": "Telematics"
+    },
+    {
+        "code": "HVAC_ECC",
+        "name": "Electronic Climate Control",
+        "category": "HVAC"
+    },
+    {
+        "code": "HVACR_ECCR",
+        "name": "Electronic Climate Control Rear",
+        "category": "HVAC"
+    },
+    {
+        "code": "ICS",
+        "name": "Integrated Center Stack",
+        "category": "Infotainment"
+    },
+    {
+        "code": "ICS_R",
+        "name": "Integrated Center Stack Rear",
+        "category": "Infotainment"
+    },
+    {
+        "code": "IDCM",
+        "name": "Integrated Dual Charge Module",
+        "category": "EV / Charging"
+    },
+    {
+        "code": "IPC_10IN",
+        "name": "Instrument Panel Cluster (10 inch)",
+        "category": "Display"
+    },
+    {
+        "code": "IPC_12IN",
+        "name": "Instrument Panel Cluster (12 inch)",
+        "category": "Display"
+    },
+    {
+        "code": "ISCM",
+        "name": "Ignition System Control Module",
+        "category": "Body"
+    },
+    {
+        "code": "ITCM",
+        "name": "Integrated Trailer Control Module",
+        "category": "Trailer"
+    },
+    {
+        "code": "ITM",
+        "name": "Intrusion Transceiver Module",
+        "category": "Security"
+    },
+    {
+        "code": "MCPA",
+        "name": "Motor Control Processor A",
+        "category": "EV / Powertrain"
+    },
+    {
+        "code": "MCPB",
+        "name": "Motor Control Processor B",
+        "category": "EV / Powertrain"
+    },
+    {
+        "code": "MSMD_DSM",
+        "name": "Driver Seat Module",
+        "category": "Body"
+    },
+    {
+        "code": "MSMP_PSM",
+        "name": "Passenger Seat Module",
+        "category": "Body"
+    },
+    {
+        "code": "NVPM",
+        "name": "Night Vision Processing Module",
+        "category": "ADAS"
+    },
+    {
+        "code": "OCM",
+        "name": "Occupant Classification Module",
+        "category": "Safety"
+    },
+    {
+        "code": "ORC",
+        "name": "Occupant Restraint Controller",
+        "category": "Safety"
+    },
+    {
+        "code": "PAM_XAC",
+        "name": "Park Assist Module",
+        "category": "ADAS"
+    },
+    {
+        "code": "PCM_ECM",
+        "name": "Engine Control Module",
+        "category": "Powertrain"
+    },
+    {
+        "code": "PDM",
+        "name": "Passenger Door Module",
+        "category": "Body"
+    },
+    {
+        "code": "PLGM",
+        "name": "Power Lift Gate Module",
+        "category": "Body"
+    },
+    {
+        "code": "PSSM",
+        "name": "Power Side Step Module",
+        "category": "Body"
+    },
+    {
+        "code": "RFHM",
+        "name": "Radio Frequency Hub Module",
+        "category": "Body / Security"
+    },
+    {
+        "code": "RLDHM",
+        "name": "Rear Left Door Handle Module",
+        "category": "Body"
+    },
+    {
+        "code": "RRDHM",
+        "name": "Rear Right Door Handle Module",
+        "category": "Body"
+    },
+    {
+        "code": "SCCM",
+        "name": "Steering Column Control Module",
+        "category": "Chassis"
+    },
+    {
+        "code": "SGCP_MCPC",
+        "name": "Starter Generator Control Processor",
+        "category": "EV / Powertrain"
+    },
+    {
+        "code": "SGW",
+        "name": "Security Gateway Module",
+        "category": "Gateway"
+    },
+    {
+        "code": "SLMG",
+        "name": "Smart Lighting Module Grille",
+        "category": "Lighting"
+    },
+    {
+        "code": "SLML",
+        "name": "Smart Lighting Module Left",
+        "category": "Lighting"
+    },
+    {
+        "code": "SLMR",
+        "name": "Smart Lighting Module Right",
+        "category": "Lighting"
+    },
+    {
+        "code": "SMMD",
+        "name": "Seat Massage Module Driver",
+        "category": "Body"
+    },
+    {
+        "code": "SMMP",
+        "name": "Seat Massage Module Passenger",
+        "category": "Body"
+    },
+    {
+        "code": "SPAAK",
+        "name": "Smart Phone as a Key",
+        "category": "Security"
+    },
+    {
+        "code": "TBM",
+        "name": "Telematics Box Module",
+        "category": "Telematics"
+    },
+    {
+        "code": "TTM",
+        "name": "Trailer Tow Module",
+        "category": "Trailer"
+    },
+    {
+        "code": "TTPM",
+        "name": "Trailer Tire Pressure Module",
+        "category": "Trailer"
+    },
+    {
+        "code": "VRM",
+        "name": "Video Routing Module",
+        "category": "Infotainment"
+    },
+    {
+        "code": "WCPM2",
+        "name": "Wireless Charging Pad Module 2",
+        "category": "Body / Infotainment"
+    }
+]

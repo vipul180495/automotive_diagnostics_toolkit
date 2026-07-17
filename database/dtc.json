@@ -1,0 +1,150 @@
+[
+    {
+        "code": "B2204-00",
+        "title": "ECU Configuration Mismatch",
+        "module": "BCM",
+        "description": "The BCM reports that an ECU configuration does not match the expected Proxi configuration.",
+        "toolTitle": "Open Proxi Tool",
+        "toolUrl": "https://shiftup.sharepoint.com/:u:/r/sites/VONA-VehicleOperabilityNorthAmerica/Shared%20Documents/VONA/!Update%20Requests/25MY%20DT%20CTR/Decoder.html?csf=1&web=1&e=0O9EJC",
+        "procedure": [
+            "For B2204-55 Invalid/Incompatible Configuration, use the Proxi tool to check MCPA, MCPB, and SGCP alignment.",
+            "In BCM, read Proxi data using DID 22 20 23.",
+            "Verify the affected module is correctly EOL configured. Use the required diagnostic session, tester-present, and BCM security access before configuration changes.",
+            "For B2204-00 ECU Configuration Mismatch, perform manual Proxi alignment for the affected ECU.",
+            "BCM → PID Editor: read DID 22 20 23 and copy the response.",
+            "Remove the positive response prefix 62 20 23 from the copied response data.",
+            "In the affected ECU PID Editor, write the BCM configuration using: 2E 20 23 [configuration data].",
+            "Save the original BCM and ECU data before writing, and ensure vehicle power is stable."
+        ]
+    },
+    {
+        "code": "P167B-00",
+        "title": "Controlled System Shutdown",
+        "module": "BPCM",
+        "description": "Active BPCM fault indicating a controlled system shutdown.",
+        "procedure": [
+            "Enter an extended diagnostic session and complete the required BPCM security access.",
+            "Open Onboard Routines and search for “High impact...”.",
+            "In the second drop-down menu, select “Reset”, then select Play.",
+            "Search for “High isolation...”.",
+            "In the second drop-down menu, select “Reset”, then select Play.",
+            "Perform a soft reset of the BPCM.",
+            "Recheck the DTC status after the reset."
+        ]
+    },
+    {
+        "code": "B235A-00",
+        "title": "SGW in Plant Mode",
+        "module": "SGW",
+        "description": "Usually seen on LWB vehicles. The SGW may not have been flashed at the plant.",
+        "procedure": [
+            "Verify the SGW software version.",
+            "In VSIR Loop 4.1, find and flash the PROD version of the SGW software.",
+            "Flash the PROD version even if the part number and software version appear identical to the version currently on the vehicle.",
+            "Confirm the SGW exits Plant Mode after flashing."
+        ]
+    },
+    {
+        "code": "C156E-00",
+        "title": "Ride Height Calibration Required",
+        "module": "ASCM",
+        "description": "Ride-height calibration procedure for WS REPB/REEV vehicles only.",
+        "procedure": [
+            "In ASCM, open On-board Routines.",
+            "Open “Leveling Set To” and select “Normal” ride height.",
+            "Open the Ride Height Calibration routine.",
+            "The correct method is to measure every corner and enter the measured values.",
+            "For WS REPB/REEV only, use rear target 51 mm for both sides and front target 114 mm for both sides.",
+            "If writing values fails, verify CDA is set to Metric. Change units through Edit → Settings, or convert the values to inches.",
+            "After the routine completes, exit Plant Mode using “Get Out of Plant Mode” → Run, then clear codes."
+        ]
+    },
+    {
+        "code": "C2212-00",
+        "title": "PAM in Plant Mode",
+        "module": "PAM",
+        "description": "PAM remains in Plant Mode.",
+        "procedure": [
+            "Complete ADA Unlock for the PAM.",
+            "Enter an Extended Diagnostic Session with Tester Present.",
+            "Open the Plant Mode routine.",
+            "Select “Exit” from the right-side drop-down list.",
+            "Select the green Play button and confirm the routine completes successfully.",
+            "Clear the stored DTC.",
+            "Calibration-not-learned DTCs require calibration and may remain when vehicles are parked in Pilot."
+        ]
+    },
+    {
+        "code": "B1200-00",
+        "title": "Airbag Warning Lamp On After Proxi Alignment",
+        "module": "ORC",
+        "description": "Typically appears after performing Proxi Alignment.",
+        "procedure": [
+            "In ORC, select Reset.",
+            "Perform a Hard Reset.",
+            "Clear codes.",
+            "Perform a key cycle.",
+            "Repeat reset, clear-code, and key-cycle steps if needed until the lamp clears."
+        ]
+    },
+    {
+        "code": "B273C-00",
+        "title": "Digital Crash Input Fault",
+        "module": "BPCM",
+        "description": "Set in the BPCM but typically caused by the ORC detecting an incorrect crash input configuration.",
+        "procedure": [
+            "Verify that the correct ORC EFD was used during flashing.",
+            "This fault has been associated with using an incorrect ORC EFD instead of the REPB version.",
+            "Reflash only step 5 using the correct REPB ORC Part Number/file.",
+            "Steps 1 through 4 do not need to be repeated.",
+            "Clear codes and confirm the fault does not return."
+        ]
+    },
+    {
+        "code": "C15CB, C15CC",
+        "title": "Placard Tire Pressure Fault",
+        "module": "RFHUB",
+        "description": "Placard tire-pressure procedure for WS REPB vehicles only.",
+        "procedure": [
+            "In RFHUB, open Read/Write.",
+            "Filter for “Placard”.",
+            "Write both Front Placard and Rear Placard values.",
+            "Set Front Placard to 60 psi.",
+            "Set Rear Placard to 65 psi.",
+            "Convert to kPa if CDA is configured to use metric pressure units."
+        ]
+    },
+
+    {
+        "code": "Code pending",
+        "title": "Selected Ride Height Not Permitted",
+        "module": "BCM",
+        "description": "Air suspension does not raise or lower, or the selected ride height is not permitted.",
+        "procedure": [
+            "In BCM, open Proxi Data.",
+            "Filter for “Type” and find Drive Type.",
+            "Change Drive Type from “RWD” to “2-speed 4wd”.",
+            "Complete ADA Unlock and enter an Extended Diagnostic Session before writing.",
+            "Write the change; retry if the write fails.",
+            "Run the Proxi Alignment tool for the complete vehicle.",
+            "Clear codes and confirm air-suspension operation.",
+            "The suspension may not lower while in Park unless Entry/Exit mode is requested by double-tapping the down switch."
+        ]
+    },
+    {
+        "code": "Code pending",
+        "title": "BSCM Configuration Mismatch / Proxi Alignment Failure",
+        "module": "BSCM",
+        "description": "May include ABS and ESC warning lamps in the cluster.",
+        "procedure": [
+            "In BCM, open Proxi Data.",
+            "Filter for “Steering”.",
+            "Find Steering Rack_Pinion Type and change the value to “Type 1”.",
+            "Complete ADA Unlock and enter an Extended Diagnostic Session before writing.",
+            "Write the change; retry if the write fails.",
+            "Run the Proxi Alignment tool for the complete vehicle.",
+            "Clear codes and check system function."
+        ]
+    }
+    
+]

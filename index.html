@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Automotive Diagnostic Toolkit
+    </title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <!-- =========================
+     SIDEBAR
+========================= -->
+
+    <div class="sidebar">
+        <div class="logo">
+
+            <h2>ADT</h2>
+
+            <p>
+                Automotive Diagnostic Toolkit
+            </p>
+
+        </div>
+        <div class="menu">
+            <button type="button" class="active" onclick="showPage('dashboard',this)">
+                🏠 Dashboard
+            </button>
+            <button type="button" onclick="showPage('dtc',this)">
+                📚 DTC Library
+            </button>
+            <button type="button" onclick="showPage('uds',this)">
+                📡 UDS Services
+            </button>
+            <button type="button" onclick="showPage('did',this)">
+                🆔 DID Database
+            </button>
+            <button type="button" onclick="showPage('nrc',this)">
+                ❌ NRC Codes
+            </button>
+            <button type="button" onclick="showPage('ecu',this)">
+                🚗 ECU Modules
+            </button>
+            <button type="button" onclick="showPage('ecuFundamentals',this)">
+                ECU Fundamentals
+            </button>
+            <button type="button" onclick="showPage('electricalFundamentals',this)">
+                ECU Electrical Basics
+            </button>
+            <button type="button" onclick="showPage('automotiveTools',this)">
+                Automotive Tools
+            </button>
+            <button type="button" onclick="showPage('decoder',this)">
+                🧮 UDS Decoder
+            </button>
+            <button type="button" onclick="showPage('can',this)">
+                📶 CAN Reference
+            </button>
+            <button type="button" onclick="showPage('learning',this)">
+                🎓 Learning Center
+            </button>
+            <!--<button type="button"
+            onclick="showPage('notes',this)">
+            📝 Notes
+            </button> -->
+            <button onclick="showPage('converter',this)">
+                🔢 Hex Toolbox
+            </button>
+            <button type="button" onclick="showPage('links',this)">
+                🔗 Useful Links
+            </button>
+        </div>
+    </div>
+    <!-- =========================
+     MAIN AREA
+========================= -->
+    <div class="main">
+        <!-- HEADER -->
+
+        <div class="header">
+
+            <h1>
+                Automotive Diagnostic Toolkit
+            </h1>
+            <div class="version">
+                Version 1.0
+            </div>
+        </div>
+        <!-- CONTENT AREA -->
+
+        <div class="content">
+            <!-- DASHBOARD -->
+
+            <div id="dashboard" class="page active">
+                <input class="searchBox" placeholder="🔍 Search Diagnostic Data">
+                <div class="cards">
+                    <div class="card">
+
+                        <h3>
+                            ECU Modules
+                        </h3>
+
+                        <h1 id="ecuCount">
+                            0
+                        </h1>
+
+                    </div>
+                    <div class="card">
+
+                        <h3>
+                            DTC Library
+                        </h3>
+
+                        <h1 id="dtcCount">
+                            0
+                        </h1>
+
+                    </div>
+                    <div class="card">
+
+                        <h3>
+                            DIDs
+                        </h3>
+
+                        <h1 id="didCount">
+                            0
+                        </h1>
+
+                    </div>
+                    <div class="card">
+
+                        <h3>
+                            UDS Services
+                        </h3>
+
+                        <h1 id="udsCount">
+                            0
+                        </h1>
+
+                    </div>
+                    <div class="card">
+
+                        <h3>
+                            NRC Codes
+                        </h3>
+
+                        <h1 id="nrcCount">
+                            0
+                        </h1>
+
+                    </div>
+                </div>
+            </div>
+            <!-- DTC -->
+
+            <div id="dtc" class="page">
+
+                <h2>
+                    DTC Library
+                </h2>
+
+                <div id="dtcContainer"></div>
+
+            </div>
+            <!-- UDS -->
+
+            <div id="uds" class="page">
+
+                <h2>
+                    UDS Services
+                </h2>
+
+                <div id="udsContainer"></div>
+
+            </div>
+            <!-- DID -->
+
+            <div id="did" class="page">
+
+                <h2>
+                    DID Explorer
+                </h2>
+                <br>
+                <input id="didSearch" class="searchBox" placeholder="🔍 Search DID (Example: F190, VIN)"
+                    onkeyup="searchDID()">
+                <div id="didContainer"></div>
+            </div>
+            <!-- NRC -->
+
+            <div id="nrc" class="page">
+                <h2>
+                    NRC Explorer
+                </h2>
+                <br>
+                <input id="nrcSearch" class="searchBox" placeholder="🔍 Search NRC (Example: 31, Request Out Of Range)"
+                    onkeyup="searchNRC()">
+                <div id="nrcContainer"></div>
+            </div>
+            <!-- ECU -->
+
+            <div id="ecu" class="page">
+                <h2>
+                    ECU Explorer
+                </h2>
+                <br>
+                <input id="ecuSearch" class="searchBox" placeholder="🔍 Search ECU (Example: BCM, PCM)"
+                    onkeyup="searchECU()">
+                <div id="ecuContainer"></div>
+            </div>
+            <!-- ECU FUNDAMENTALS -->
+            <div id="ecuFundamentals" class="page">
+                <h2>ECU Fundamentals</h2>
+                <br>
+                <div id="ecuFundamentalsContainer"></div>
+            </div>
+            <!-- ECU ELECTRICAL FUNDAMENTALS -->
+            <div id="electricalFundamentals" class="page">
+                <h2>ECU Electrical Basics</h2>
+                <br>
+                <div id="electricalFundamentalsContainer"></div>
+            </div>
+            <!-- AUTOMOTIVE TOOLS -->
+            <div id="automotiveTools" class="page">
+                <h2>Automotive Engineering Tools</h2>
+                <br>
+                <div id="automotiveToolsContainer"></div>
+            </div>
+            <!-- UDS DECODER -->
+
+            <div id="decoder" class="page">
+                <h2>
+                    UDS Message Decoder
+                </h2>
+                <br>
+                <input id="udsInput" class="searchBox" placeholder="Enter UDS Message Example: 22 F1 90">
+                <button type="button" class="decodeBtn" onclick="decodeUDS()">
+
+                    Decode
+
+                </button>
+                <br><br>
+                <div id="decoderResult"></div>
+            </div>
+            <!-- CAN -->
+
+            <div id="can" class="page">
+                <h2>
+                    CAN Engineering Toolbox
+                </h2>
+                <br>
+                <input id="canID" class="searchBox" placeholder="CAN ID Example: 7E0">
+                <input id="canData" class="searchBox" placeholder="Data Example: 03 22 F1 90 00 00 00 00">
+                <button type="button" class="decodeBtn" onclick="decodeCAN()">
+
+                    Analyze CAN
+
+                </button>
+                <br><br>
+                <div id="canResult"></div>
+            </div>
+            <div id="learning" class="page">
+                <h2>CAN, UDS & AUTOSAR Learning Center</h2>
+                <br>
+                <div id="learningContainer"></div>
+            </div>
+            <!-- HEX TOOLBOX -->
+
+            <div id="converter" class="page">
+
+                <h2>
+                    Hex Toolbox
+                </h2>
+                <br>
+                <div class="converterGrid">
+                    <div class="converterCard">
+
+                        <h3>
+                            Hex → ASCII
+                        </h3>
+                        <input id="hexASCIIInput" class="searchBox" placeholder="Example: 56 49 4E">
+                        <button class="decodeBtn" onclick="hexToASCII()">
+
+                            Convert
+
+                        </button>
+                        <div id="asciiResult"></div>
+                    </div>
+                    <div class="converterCard">
+
+                        <h3>
+                            Hex → Binary
+                        </h3>
+                        <input id="hexBinaryInput" class="searchBox" placeholder="Example: F1">
+                        <button class="decodeBtn" onclick="hexToBinary()">
+
+                            Convert
+
+                        </button>
+                        <div id="binaryResult"></div>
+                    </div>
+                    <div class="converterCard">
+
+                        <h3>
+                            Binary → Decimal
+                        </h3>
+                        <input id="binaryDecimalInput" class="searchBox" placeholder="Example: 11110001">
+                        <button class="decodeBtn" onclick="binaryToDecimal()">
+
+                            Convert
+
+                        </button>
+                        <div id="decimalResult"></div>
+                    </div>
+                    <div class="converterCard">
+
+                        <h3>
+                            Decimal → Hex
+                        </h3>
+                        <input id="decimalHexInput" class="searchBox" placeholder="Example: 241">
+                        <button class="decodeBtn" onclick="decimalToHex()">
+
+                            Convert
+
+                        </button>
+                        <div id="hexResult"></div>
+                    </div>
+                </div>
+                <br>
+                <div class="converterInfo">
+                    <h3>
+                        How It Works
+                    </h3>
+                    <br>
+                    <h4>
+                        1. Hexadecimal (Base-16)
+                    </h4>
+                    <p>
+                        Hexadecimal uses 16 symbols:
+                    </p>
+                    <div class="hexBox">
+
+                        0 1 2 3 4 5 6 7 8 9 A B C D E F
+
+                    </div>
+                    <p>
+
+                        Each hexadecimal digit represents 4 binary bits.
+
+                    </p>
+                    <br>
+                    <p>
+                        Example:
+                    </p>
+                    <div class="hexBox">
+
+                        F1 Hex
+
+                        <br><br>
+
+                        F = 1111
+
+                        <br>
+
+                        1 = 0001
+
+                        <br><br>
+
+                        Binary:
+
+                        11110001
+
+                    </div>
+                    <br><br>
+                    <h4>
+                        2. Hexadecimal to Decimal
+                    </h4>
+                    <p>
+                        Each position represents a power of 16.
+                    </p>
+                    <div class="hexBox">
+
+                        F1 Hex
+
+                        <br><br>
+
+                        F × 16¹ + 1 × 16⁰
+
+                        <br><br>
+
+                        15 × 16 + 1 × 1
+
+                        <br><br>
+
+                        240 + 1
+
+                        <br><br>
+
+                        = 241 Decimal
+
+                    </div>
+                    <br><br>
+                    <h4>
+                        3. Hexadecimal to ASCII
+                    </h4>
+                    <p>
+                        ASCII maps numerical values to characters.
+                    </p>
+                    <div class="hexBox">
+
+                        41 Hex = 65 Decimal = A
+
+                        <br>
+
+                        42 Hex = 66 Decimal = B
+
+                        <br>
+
+                        43 Hex = 67 Decimal = C
+
+                    </div>
+                    <br>
+                    <p>
+                        Example from ECU data:
+                    </p>
+                    <div class="hexBox">
+
+                        45 44 4D 32 36 33 30 30 20 50
+
+                        <br><br>
+
+                        45 = E
+
+                        <br>
+
+                        44 = D
+
+                        <br>
+
+                        4D = M
+
+                        <br>
+
+                        32 = 2
+
+                        <br>
+
+                        36 = 6
+
+                        <br>
+
+                        33 = 3
+
+                        <br>
+
+                        30 = 0
+
+                        <br>
+
+                        30 = 0
+
+                        <br>
+
+                        20 = Space
+
+                        <br>
+
+                        50 = P
+
+                        <br><br>
+
+                        Result:
+
+                        EDM26300 P
+
+                    </div>
+                    <br><br>
+                    <h4>
+                        4. Binary Representation
+                    </h4>
+                    <p>
+                        Computers store data as bits (0 and 1).
+                    </p>
+                    <div class="hexBox">
+
+                        Example:
+
+                        <br><br>
+
+                        Hex:
+
+                        F1
+
+                        <br><br>
+
+                        Binary:
+
+                        11110001
+
+                        <br><br>
+
+                        Bit7 Bit6 Bit5 Bit4 Bit3 Bit2 Bit1 Bit0
+
+                        <br>
+
+                        1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;1
+
+                    </div>
+                    <br><br>
+                    <h4>
+                        5. Automotive Example (CAN / UDS)
+                    </h4>
+                    <p>
+                        A typical CAN frame:
+                    </p>
+                    <div class="hexBox">
+
+                        03 22 F1 90 00 00 00 00
+
+                    </div>
+                    <p>
+
+                        Breakdown:
+
+                    </p>
+                    <div class="hexBox">
+
+                        03 → ISO-TP Length
+
+                        <br>
+
+                        22 → UDS Read Data By Identifier
+
+                        <br>
+
+                        F1 90 → DID (VIN)
+
+                        <br>
+
+                        00 00 00 00 → Padding bytes
+
+                    </div>
+                    <br>
+                    <p>
+                        Response example:
+                    </p>
+                    <div class="hexBox">
+
+                        62 F1 90 31 48 47 42 ...
+
+                    </div>
+                    <p>
+
+                        62 → Positive Response for 22
+
+                        <br>
+
+                        F1 90 → Requested DID
+
+                        <br>
+
+                        31 48 47 42 → Data bytes (example VIN characters)
+
+                    </p>
+                </div>
+            </div>
+            <!-- LINKS -->
+
+            <div id="links" class="page">
+                <h2>
+                    Useful Links
+                </h2>
+                <br>
+                <input id="linkSearch" class="searchBox" placeholder="🔍 Search links (UDS, CAN, OEM, Tools...)"
+                    onkeyup="searchLinks()">
+                <br><br>
+                <div id="linksContainer"></div>
+            </div>
+        </div>
+        <!-- FOOTER OUTSIDE CONTENT FOR SCROLL FIX -->
+
+        <div class="footer">
+
+            Automotive Diagnostic Toolkit • Offline Reference • © 2026
+
+        </div>
+    </div>
+    <!-- JAVASCRIPT -->
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/dtc.js"></script>
+    <script src="js/uds.js"></script>
+    <script src="js/did.js"></script>
+    <script src="js/nrc.js"></script>
+    <script src="js/ecu.js"></script>
+    <script src="js/ecu-fundamentals.js"></script>
+    <script src="js/electrical-fundamentals.js"></script>
+    <script src="js/automotive-tools.js"></script>
+    <script src="js/decoder.js"></script>
+    <script src="js/can.js"></script>
+    <script src="js/links.js"></script>
+    <script src="js/converter.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/learning.js"></script>
+</body>
+
+</html>

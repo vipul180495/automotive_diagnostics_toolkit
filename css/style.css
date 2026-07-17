@@ -1,0 +1,1779 @@
+/* =======================
+   GLOBAL
+======================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background: #0b0f14;
+
+    color: white;
+
+    display: flex;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+}
+
+/* =======================
+   SIDEBAR
+======================= */
+.sidebar {
+
+    width: 250px;
+
+    height: 100vh;
+
+    position: fixed;
+
+    left: 0;
+
+    top: 0;
+
+    background: #111827;
+
+    border-right: 1px solid #202938;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.logo {
+
+    padding: 25px;
+
+    text-align: center;
+
+    border-bottom: 1px solid #202938;
+
+}
+
+.logo h2 {
+
+    font-size: 22px;
+
+    color: #3b82f6;
+
+}
+
+.logo p {
+
+    color: #94a3b8;
+
+    font-size: 13px;
+
+    margin-top: 8px;
+
+}
+
+.menu {
+
+    flex: 1;
+
+    padding-top: 15px;
+
+}
+
+.menu button {
+
+    width: 100%;
+
+    background: none;
+
+    border: none;
+
+    color: white;
+
+    padding: 15px 25px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: .2s;
+
+}
+
+.menu button:hover {
+
+    background: #1e293b;
+
+    color: #60a5fa;
+
+}
+
+.menu button.active {
+
+    background: #2563eb;
+
+}
+
+/* =======================
+   MAIN LAYOUT
+======================= */
+.main {
+
+    margin-left: 250px;
+
+    flex: 1;
+
+    height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+}
+
+/* =======================
+   HEADER
+======================= */
+.header {
+
+    height: 70px;
+
+    flex-shrink: 0;
+
+    background: #111827;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 25px;
+
+    border-bottom: 1px solid #202938;
+
+}
+
+.header h1 {
+
+    font-size: 24px;
+
+}
+
+.version {
+
+    color: #94a3b8;
+
+}
+
+/* =======================
+   CONTENT
+======================= */
+.content {
+
+    flex: 1;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    padding: 25px;
+
+}
+
+.page {
+
+    display: none;
+
+    width: 100%;
+
+}
+
+.page.active {
+
+    display: block;
+
+}
+
+/* =======================
+   FOOTER
+======================= */
+.footer {
+
+    height: 50px;
+
+    flex-shrink: 0;
+
+    text-align: center;
+
+    padding: 15px;
+
+    color: #6b7280;
+
+    border-top: 1px solid #202938;
+
+}
+
+/* =======================
+   SEARCH
+======================= */
+.searchBox {
+
+    width: 100%;
+
+    padding: 14px;
+
+    background: #111827;
+
+    color: white;
+
+    border: 1px solid #374151;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    margin-bottom: 25px;
+
+}
+
+/* =======================
+   DASHBOARD CARDS
+======================= */
+.cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 20px;
+
+}
+
+.card {
+
+    background: #111827;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    border-left: 5px solid #3b82f6;
+
+    transition: .25s;
+
+}
+
+.card:hover {
+
+    transform: translateY(-4px);
+
+}
+
+.card h3 {
+
+    color: #94a3b8;
+
+    margin-bottom: 15px;
+
+}
+
+.card h1 {
+
+    font-size: 38px;
+
+    color: #3b82f6;
+
+}
+
+/* =======================
+   UDS CARDS
+======================= */
+.udsCard {
+
+    background: #111827;
+
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+
+    border-left: 6px solid #8b5cf6;
+
+    overflow: hidden;
+
+}
+
+.udsHeader {
+
+    background: #1f2937;
+
+    padding: 15px 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    cursor: pointer;
+
+}
+
+.udsHeader:hover {
+
+    background: #273449;
+
+}
+
+.udsSID {
+
+    color: #a78bfa;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+.udsName {
+
+    font-size: 17px;
+
+}
+
+.udsBody {
+
+    display: none;
+
+    padding: 20px;
+
+}
+
+.udsSection {
+
+    margin-bottom: 18px;
+
+}
+
+.udsSection h4 {
+
+    color: #a78bfa;
+
+    margin-bottom: 8px;
+
+}
+
+.codeBox {
+
+    background: #020617;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    font-family: Consolas, monospace;
+
+    border: 1px solid #334155;
+
+}
+
+/* =======================
+   NRC CARDS
+======================= */
+.nrcCard {
+
+    background: #111827;
+
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+
+    border-left: 6px solid #ef4444;
+
+    overflow: hidden;
+
+}
+
+.nrcHeader {
+
+    background: #1f2937;
+
+    padding: 15px 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    cursor: pointer;
+
+}
+
+.nrcHeader:hover {
+
+    background: #273449;
+
+}
+
+.nrcCode {
+
+    color: #f87171;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+.nrcName {
+
+    font-size: 17px;
+
+}
+
+.nrcBody {
+
+    display: none;
+
+    padding: 20px;
+
+    background: #0f172a;
+
+}
+
+.nrcSection {
+
+    margin-bottom: 18px;
+
+}
+
+.nrcSection h4 {
+
+    color: #f87171;
+
+    margin-bottom: 8px;
+
+}
+
+/* =======================
+   DID CARDS
+======================= */
+.didCard {
+
+    background: #111827;
+
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+
+    border-left: 6px solid #22c55e;
+
+    overflow: hidden;
+
+}
+
+.didHeader {
+
+    background: #1f2937;
+
+    padding: 15px 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    cursor: pointer;
+
+}
+
+.didHeader:hover {
+
+    background: #273449;
+
+}
+
+.didCode {
+
+    color: #4ade80;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+.didName {
+
+    font-size: 17px;
+
+}
+
+.didBody {
+
+    display: none;
+
+    padding: 20px;
+
+    background: #0f172a;
+
+}
+
+.didSection {
+
+    margin-bottom: 18px;
+
+}
+
+.didSection h4 {
+
+    color: #4ade80;
+
+    margin-bottom: 8px;
+
+}
+
+/* =======================
+   ECU CARDS
+======================= */
+.ecuCard {
+
+    background: #111827;
+
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+
+    border-left: 6px solid #f59e0b;
+
+    overflow: hidden;
+
+}
+
+.ecuHeader {
+
+    background: #1f2937;
+
+    padding: 15px 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    cursor: pointer;
+
+}
+
+.ecuHeader:hover {
+
+    background: #273449;
+
+}
+
+.ecuCode {
+
+    color: #fbbf24;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+.ecuName {
+
+    font-size: 17px;
+
+}
+
+.ecuCategory {
+
+    background: #374151;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    color: #fef3c7;
+
+}
+
+.ecuBody {
+
+    display: none;
+
+    padding: 20px;
+
+    background: #0f172a;
+
+}
+
+.ecuSection {
+
+    margin-bottom: 18px;
+
+}
+
+.ecuSection h4 {
+
+    color: #fbbf24;
+
+    margin-bottom: 8px;
+
+}
+
+/* =======================
+   DECODER
+======================= */
+.decodeBtn {
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 25px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+}
+
+.decodeBtn:hover {
+
+    background: #1d4ed8;
+
+}
+
+.decoderCard {
+
+    background: #111827;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    border-left: 6px solid #8b5cf6;
+
+}
+
+.decoderSection {
+
+    margin-bottom: 20px;
+
+}
+
+.decoderSection h4 {
+
+    color: #a78bfa;
+
+    margin-bottom: 8px;
+
+}
+
+.hexBox {
+
+    background: #020617;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    font-family: monospace;
+
+    color: #4ade80;
+
+}
+
+/* =======================
+   CAN
+======================= */
+.canCard {
+
+    background: #111827;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    border-left: 6px solid #06b6d4;
+
+}
+
+.canSection {
+
+    margin-bottom: 18px;
+
+}
+
+.canSection h4 {
+
+    color: #22d3ee;
+
+    margin-bottom: 8px;
+
+}
+
+/* =======================
+   LINKS
+======================= */
+.linkCard {
+
+    background: #111827;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+
+    border-left: 5px solid #22c55e;
+
+    transition: .25s;
+
+}
+
+.linkCard:hover {
+
+    background: #1f2937;
+
+    transform: translateY(-3px);
+
+}
+
+.linkCard h3 {
+
+    color: #60a5fa;
+
+    margin-bottom: 10px;
+
+}
+
+.linkCategory {
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    margin-bottom: 15px;
+
+}
+
+.linkButton {
+
+    display: inline-block;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 8px 15px;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+}
+
+.linkButton:hover {
+
+    background: #1d4ed8;
+
+}
+
+/* =======================
+HEX TOOLBOX
+======================= */
+.converterGrid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: 20px;
+
+}
+
+.converterCard {
+
+    background: #111827;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    border-left: 6px solid #06b6d4;
+
+}
+
+.converterCard h3 {
+
+    color: #22d3ee;
+
+    margin-bottom: 15px;
+
+}
+
+.converterCard .decodeBtn {
+
+    margin-bottom: 15px;
+
+}
+
+.converterInfo {
+
+    background: #111827;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    border-left: 6px solid #22c55e;
+
+}
+
+.converterInfo h3 {
+
+    color: #4ade80;
+
+}
+/* DTC Library */
+.dtcCard {
+    margin-bottom: 16px;
+    overflow: hidden;
+    border: 1px solid #263549;
+    border-radius: 12px;
+    background: #121a26;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.dtcHeader {
+    width: 100%;
+    padding: 18px 20px;
+    border: 0;
+    background: linear-gradient(135deg, #17263a, #111827);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.dtcHeader:hover {
+    background: linear-gradient(135deg, #1d3654, #162033);
+}
+
+.dtcHeader h3 {
+    margin: 8px 0 6px;
+    font-size: 18px;
+}
+
+.dtcCode {
+    display: inline-block;
+    padding: 4px 9px;
+    border-radius: 6px;
+    background: #ef4444;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.dtcModule {
+    color: #93c5fd;
+    font-size: 13px;
+}
+
+.dtcArrow {
+    color: #93c5fd;
+    font-size: 28px;
+    transition: transform 0.2s ease;
+}
+
+.dtcCard.open .dtcArrow {
+    transform: rotate(180deg);
+}
+
+.dtcBody {
+    display: none;
+    padding: 20px;
+    border-top: 1px solid #263549;
+}
+
+.dtcCard.open .dtcBody {
+    display: block;
+}
+
+.dtcDescription {
+    margin-bottom: 18px;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.dtcToolButton {
+    display: inline-block;
+    margin-bottom: 22px;
+    padding: 10px 14px;
+    border-radius: 7px;
+    background: #2563eb;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.dtcToolButton:hover {
+    background: #1d4ed8;
+}
+
+.dtcBody h4 {
+    margin-bottom: 12px;
+    color: #f8fafc;
+}
+
+.dtcSteps {
+    padding-left: 24px;
+    color: #dbeafe;
+    line-height: 1.7;
+}
+
+.dtcSteps li {
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+/* Learning Center */
+.learningIntro,
+.learningCard {
+    margin-bottom: 16px;
+    padding: 18px;
+    border: 1px solid #263549;
+    border-radius: 12px;
+    background: #121a26;
+}
+
+.learningIntro {
+    background:
+        radial-gradient(circle at top right, rgba(59, 130, 246, 0.22), transparent 42%),
+        #121a26;
+}
+
+.learningHeroHeader,
+.learningControls,
+.learningCardActions,
+.learningRoadmap,
+.quizAnswers {
+    display: flex;
+    gap: 14px;
+}
+
+.learningHeroHeader {
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.learningEyebrow {
+    margin: 0 0 6px;
+    color: #38bdf8;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.learningProgress {
+    flex: 0 0 190px;
+    padding: 12px;
+    border: 1px solid #31547e;
+    border-radius: 10px;
+    background: rgba(7, 16, 30, 0.55);
+}
+
+.learningProgressLabel {
+    display: block;
+    margin-bottom: 4px;
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.learningProgress strong {
+    color: #f8fafc;
+    font-size: 15px;
+}
+
+.learningProgressTrack {
+    height: 7px;
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #263549;
+}
+
+.learningProgressTrack span {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #38bdf8, #34d399);
+    transition: width 0.25s ease;
+}
+
+.learningRoadmap {
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+
+.learningRoadmap span {
+    padding: 7px 10px;
+    border: 1px solid #31547e;
+    border-radius: 999px;
+    color: #bfdbfe;
+    font-size: 13px;
+    background: rgba(15, 32, 53, 0.7);
+}
+
+.learningRoadmap b {
+    display: inline-grid;
+    width: 18px;
+    height: 18px;
+    place-items: center;
+    margin-right: 4px;
+    border-radius: 50%;
+    color: #0b1220;
+    background: #7dd3fc;
+    font-size: 11px;
+}
+
+.learningControls {
+    align-items: end;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    padding: 14px;
+    border: 1px solid #263549;
+    border-radius: 12px;
+    background: #121a26;
+}
+
+.learningSearchLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+
+.learningSearch {
+    flex: 1 1 230px;
+    min-height: 40px;
+    padding: 0 12px;
+    border: 1px solid #3c5370;
+    border-radius: 8px;
+    outline: none;
+    color: #e2e8f0;
+    background: #0b1220;
+}
+
+.learningSearch:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+.learningControlButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.learningControlButtons button,
+.learningCompleteButton,
+.quizAnswers button {
+    min-height: 36px;
+    padding: 8px 11px;
+    border: 1px solid #3b82f6;
+    border-radius: 7px;
+    color: #dbeafe;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #17365b;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.learningControlButtons button:hover,
+.learningCompleteButton:hover,
+.quizAnswers button:hover {
+    transform: translateY(-1px);
+    background: #1d4e80;
+}
+
+.learningSecondaryButton {
+    border-color: #56677f !important;
+    color: #cbd5e1 !important;
+    background: #1b2738 !important;
+}
+
+.learningIntro h3 {
+    margin-bottom: 8px;
+    color: #60a5fa;
+}
+
+.learningIntro p,
+.learningContent {
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.learningCard {
+    padding: 0;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.learningCard.isComplete {
+    border-color: #1d8f70;
+    box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.12);
+}
+
+.learningCard summary {
+    padding: 18px;
+    color: #f8fafc;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #17263a;
+    list-style: none;
+}
+
+.learningCard summary::after {
+    float: right;
+    content: "+";
+    color: #7dd3fc;
+    font-size: 22px;
+    line-height: 16px;
+}
+
+.learningCard[open] summary::after {
+    content: "−";
+}
+
+.learningCard summary::-webkit-details-marker {
+    display: none;
+}
+
+.learningCard summary:hover {
+    background: #1d3654;
+}
+
+.learningContent {
+    padding: 20px;
+}
+
+.learningCardActions {
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #263549;
+}
+
+.learningTopicTag {
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.learningCompleteButton[aria-pressed="true"] {
+    border-color: #159669;
+    color: #bbf7d0;
+    background: #145344;
+}
+
+.learningTable {
+    width: 100%;
+    margin-bottom: 16px;
+    border-collapse: collapse;
+}
+
+.learningTable th,
+.learningTable td {
+    padding: 12px;
+    border: 1px solid #34445d;
+    text-align: left;
+    vertical-align: top;
+}
+
+.learningTable th {
+    background: #1e3a5f;
+    color: #dbeafe;
+}
+
+.smallTable {
+    max-width: 400px;
+}
+
+.frameDiagram,
+.autosarDiagram {
+    margin: 14px 0;
+    padding: 14px;
+    border-left: 4px solid #3b82f6;
+    border-radius: 6px;
+    background: #0b1220;
+    color: #93c5fd;
+    font-family: Consolas, monospace;
+    overflow-x: auto;
+}
+
+.learningFlow {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    margin: 18px 0;
+    padding: 14px;
+    overflow-x: auto;
+    border: 1px solid #2b4666;
+    border-radius: 10px;
+    background: linear-gradient(115deg, #0b1625, #101f32);
+}
+
+/* HIL testing lesson */
+.hilDiagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 18px 0;
+    padding: 18px;
+    border: 1px solid #31547e;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(14, 116, 144, 0.2), rgba(15, 23, 42, 0.92));
+}
+
+.hilDiagramSide,
+.hilEcuGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.hilNode {
+    display: block;
+    min-width: 190px;
+    padding: 11px 14px;
+    border: 1px solid #3b82f6;
+    border-radius: 9px;
+    background: #13233a;
+    color: #e0f2fe;
+    font-weight: 700;
+    line-height: 1.35;
+    text-align: center;
+}
+
+.hilNode small,
+.hilSupport {
+    color: #bae6fd;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.hilAutomation { border-color: #a78bfa; background: #221d3b; }
+.hilSimulator { border-color: #22d3ee; background: #123142; }
+.hilEcu { border-color: #4ade80; background: #173126; }
+
+.hilArrow,
+.hilConnector {
+    color: #67e8f9;
+    font-weight: 700;
+    text-align: center;
+}
+
+.hilConnector {
+    max-width: 125px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.hilSupport {
+    max-width: 190px;
+    text-align: center;
+}
+
+.hilTestFlow span {
+    flex: 1 0 145px;
+    min-width: 145px;
+    padding: 12px;
+    border: 1px solid #1d4ed8;
+    border-radius: 8px;
+    background: #14263a;
+    color: #dbeafe;
+}
+
+.hilTestFlow b {
+    align-self: center;
+    color: #7dd3fc;
+    font-size: 21px;
+}
+
+.canPropertiesTableScroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.canPropertiesTable {
+    min-width: 860px;
+}
+
+.flowStep {
+    flex: 1 0 145px;
+    min-width: 145px;
+    padding: 12px;
+    border: 1px solid #345675;
+    border-radius: 8px;
+    background: #14263a;
+}
+
+.flowStep span {
+    display: inline-grid;
+    min-width: 23px;
+    height: 23px;
+    place-items: center;
+    margin-bottom: 8px;
+    padding: 0 5px;
+    border-radius: 999px;
+    color: #082f49;
+    background: #7dd3fc;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.flowStep b,
+.flowStep small {
+    display: block;
+}
+
+.flowStep b {
+    color: #f1f5f9;
+    font-size: 13px;
+}
+
+.flowStep small {
+    margin-top: 5px;
+    color: #b6c6d9;
+    line-height: 1.45;
+}
+
+.flowStep code {
+    color: #bfdbfe;
+    font-family: Consolas, monospace;
+}
+
+.flowStep.flowAccent {
+    border-color: #1d9a77;
+    background: #123a3a;
+}
+
+.flowStep.flowAccent span {
+    color: #052e2b;
+    background: #6ee7b7;
+}
+
+.flowArrow {
+    align-self: center;
+    color: #7dd3fc;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.diagnosticTable {
+    margin-top: 14px;
+}
+
+.learningList {
+    padding-left: 22px;
+}
+
+.learningList li {
+    margin: 9px 0;
+}
+
+.learningNote {
+    padding: 12px;
+    border-left: 4px solid #f59e0b;
+    background: #2a2112;
+    color: #fde68a;
+}
+
+.learningQuiz {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 18px;
+    margin: 16px 0;
+    padding: 20px;
+    border: 1px solid #415273;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #15263d, #101c2c);
+}
+
+.learningQuiz h3 {
+    margin: 0 0 6px;
+    color: #f8fafc;
+}
+
+.learningQuiz p {
+    margin: 0;
+    color: #cbd5e1;
+}
+
+.quizAnswers {
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.quizAnswers button.isCorrect {
+    border-color: #34d399;
+    color: #d1fae5;
+    background: #145344;
+}
+
+.quizAnswers button.isWrong {
+    border-color: #fb7185;
+    color: #ffe4e6;
+    background: #64283a;
+}
+
+.quizFeedback {
+    grid-column: 1 / -1;
+    min-height: 24px;
+    color: #bae6fd !important;
+    font-weight: 600;
+}
+
+@media (max-width: 680px) {
+    .learningHeroHeader,
+    .learningQuiz {
+        display: block;
+    }
+
+    .learningProgress {
+        margin-top: 16px;
+    }
+
+    .quizAnswers {
+        margin-top: 16px;
+    }
+
+    .learningTable {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .learningFlow {
+        padding: 10px;
+    }
+
+    .hilDiagram {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .hilConnector::after {
+        content: " ↕";
+    }
+
+    .flowArrow {
+        display: none;
+    }
+}
+
+/* Application-wide visual refinement */
+body {
+    background:
+        radial-gradient(circle at 80% -15%, rgba(37, 99, 235, 0.15), transparent 32%),
+        #0b0f14;
+}
+
+.sidebar {
+    background: linear-gradient(180deg, #111b2a 0%, #0c1420 100%);
+    box-shadow: 8px 0 30px rgba(0, 0, 0, 0.14);
+}
+
+.logo {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.16), transparent);
+}
+
+.logo h2 {
+    letter-spacing: 0.08em;
+}
+
+.menu {
+    overflow-y: auto;
+    padding: 14px 10px;
+}
+
+.menu button {
+    position: relative;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: #d6e0ef;
+}
+
+.menu button.active {
+    color: #eff6ff;
+    background: linear-gradient(90deg, #1d4ed8, #2563eb);
+    box-shadow: 0 7px 16px rgba(37, 99, 235, 0.22);
+}
+
+.menu button.active::before {
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 3px;
+    height: 22px;
+    border-radius: 0 4px 4px 0;
+    content: "";
+    background: #bae6fd;
+}
+
+.header {
+    background: rgba(17, 27, 42, 0.9);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.header h1 {
+    letter-spacing: -0.02em;
+}
+
+.version {
+    padding: 6px 10px;
+    border: 1px solid #33445d;
+    border-radius: 999px;
+    font-size: 12px;
+    background: #0d1624;
+}
+
+.content {
+    scrollbar-color: #334866 #101722;
+}
+
+.page.active {
+    animation: pageEnter 0.22s ease-out;
+}
+
+@keyframes pageEnter {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.searchBox {
+    background: rgba(17, 24, 39, 0.9);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.searchBox:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.12);
+}
+
+.card {
+    border: 1px solid #263549;
+    border-left: 5px solid #3b82f6;
+    background: linear-gradient(145deg, #152033, #101824);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+.card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 760px) {
+    body {
+        display: block;
+        overflow: auto;
+    }
+
+    .sidebar {
+        position: fixed;
+        z-index: 10;
+        width: 100%;
+        height: 56px;
+        border-right: none;
+        border-bottom: 1px solid #263549;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        height: 56px;
+        padding: 6px;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .menu button {
+        flex: 0 0 auto;
+        width: auto;
+        margin: 0;
+        padding: 10px 12px;
+        white-space: nowrap;
+        font-size: 13px;
+    }
+
+    .menu button.active::before {
+        top: auto;
+        bottom: 0;
+        left: 12px;
+        width: calc(100% - 24px);
+        height: 3px;
+        border-radius: 3px 3px 0 0;
+    }
+
+    .main {
+        height: auto;
+        min-height: 100vh;
+        margin-left: 0;
+        padding-top: 56px;
+    }
+
+    .header {
+        height: auto;
+        min-height: 62px;
+        padding: 12px 16px;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .content {
+        overflow: visible;
+        padding: 16px;
+    }
+
+    .footer {
+        height: auto;
+    }
+}
+
+/* ECU Fundamentals */
+.ecuIntro, .ecuSectionCard { margin-bottom: 16px; padding: 20px; border: 1px solid #263549; border-radius: 12px; background: #121a26; }
+.ecuIntro { background: radial-gradient(circle at top right, rgba(20, 184, 166, 0.18), transparent 38%), #121a26; }
+.ecuEyebrow { margin-bottom: 6px; color: #2dd4bf; font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+.ecuIntro h3, .ecuSectionCard h3 { margin-bottom: 10px; color: #f8fafc; }
+.ecuIntro p, .ecuSectionCard p, .ecuList { color: #cbd5e1; line-height: 1.65; }
+.ecuArchitecture, .ecuBootFlow { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 18px; padding: 16px; overflow-x: auto; border: 1px solid #31547e; border-radius: 10px; background: linear-gradient(120deg, #0b1625, #102c38); color: #7dd3fc; }
+.ecuBlock { flex: 0 0 190px; padding: 12px; border: 1px solid #22d3ee; border-radius: 9px; background: #123142; color: #e0f2fe; font-weight: 700; line-height: 1.35; text-align: center; }
+.ecuCore { border-color: #4ade80; background: #173126; }
+.ecuOutputs { border-color: #a78bfa; background: #221d3b; }
+.ecuBlock small { color: #bae6fd; font-weight: 400; }
+.ecuTable { width: 100%; margin-top: 12px; border-collapse: collapse; color: #dbeafe; }
+.ecuTable th, .ecuTable td { padding: 12px; border: 1px solid #29405e; text-align: left; vertical-align: top; line-height: 1.5; }
+.ecuTable th { color: #bfdbfe; background: #14263a; }
+.ecuHardwareGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-top: 14px; }
+.ecuHardwareGrid div { padding: 14px; border: 1px solid #2b4666; border-radius: 9px; background: #101f32; }
+.ecuHardwareGrid b, .ecuHardwareGrid span { display: block; }
+.ecuHardwareGrid b { margin-bottom: 6px; color: #67e8f9; }
+.ecuHardwareGrid span { color: #cbd5e1; font-size: 14px; line-height: 1.5; }
+.ecuNote { margin-top: 14px; padding: 12px; border-left: 4px solid #f59e0b; background: #2a2112; color: #fde68a !important; }
+.ecuNote code { color: #fef3c7; }
+.ecuBootFlow span { flex: 1 0 150px; min-width: 150px; padding: 11px; border: 1px solid #1d4ed8; border-radius: 8px; background: #14263a; color: #dbeafe; text-align: center; }
+.ecuBootFlow b { font-size: 21px; }
+
+@media (max-width: 680px) {
+    .ecuArchitecture { justify-content: flex-start; }
+    .ecuTable { display: block; overflow-x: auto; }
+}
+
+/* ECU electrical basics and automotive tools */
+.electricalIntro, .electricalCard, .toolsIntro, .toolsCard { margin-bottom: 16px; padding: 20px; border: 1px solid #263549; border-radius: 12px; background: #121a26; }
+.electricalIntro { background: radial-gradient(circle at top right, rgba(245, 158, 11, .17), transparent 38%), #121a26; }
+.toolsIntro { background: radial-gradient(circle at top right, rgba(168, 85, 247, .17), transparent 38%), #121a26; }
+.electricalIntro h3, .electricalCard h3, .toolsIntro h3, .toolsCard h3 { margin-bottom: 10px; color: #f8fafc; }
+.electricalIntro p, .electricalCard p, .toolsIntro p, .toolsCard p { color: #cbd5e1; line-height: 1.65; }
+.electricalFlow, .toolsFlow { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 18px; padding: 16px; overflow-x: auto; border: 1px solid #5b4a2a; border-radius: 10px; background: linear-gradient(120deg, #211a0d, #152235); color: #fde68a; }
+.electricalFlow span, .toolsFlow span { flex: 1 0 155px; min-width: 155px; padding: 12px; border: 1px solid #d97706; border-radius: 8px; background: #2a2112; color: #fef3c7; text-align: center; }
+.toolsFlow { border-color: #4c3b70; background: linear-gradient(120deg, #1f1930, #152235); color: #ddd6fe; }
+.toolsFlow span { border-color: #7c3aed; background: #251b3b; color: #ede9fe; }
+.electricalFlow small, .toolsFlow small { color: #cbd5e1; }
+.electricalTable, .toolsTable { width: 100%; margin-top: 12px; border-collapse: collapse; color: #dbeafe; }
+.electricalTable th, .electricalTable td, .toolsTable th, .toolsTable td { padding: 12px; border: 1px solid #29405e; text-align: left; vertical-align: top; line-height: 1.5; }
+.electricalTable th { color: #fef3c7; background: #2a2112; }
+.toolsTable th { color: #e9d5ff; background: #251b3b; }
+.electricalNote { margin-top: 14px; padding: 12px; border-left: 4px solid #f59e0b; background: #2a2112; color: #fde68a !important; }
+
+/* Automotive Tools learning-center interaction */
+.toolsHeroHeader { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+.toolsProgress { flex: 0 0 180px; padding: 12px; border: 1px solid #59437b; border-radius: 10px; background: rgba(27, 18, 49, .65); }
+.toolsProgress span { display: block; color: #c4b5fd; font-size: 12px; }
+.toolsProgress strong { display: block; margin-top: 4px; color: #f5f3ff; font-size: 14px; }
+.toolsProgress div { height: 7px; margin-top: 10px; overflow: hidden; border-radius: 999px; background: #3b2b58; }
+.toolsProgress i { display: block; width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #a78bfa, #22d3ee); transition: width .25s ease; }
+.toolsControls { display: flex; flex-wrap: wrap; align-items: end; gap: 10px; margin-bottom: 16px; padding: 14px; border: 1px solid #263549; border-radius: 12px; background: #121a26; }
+.toolsControls label { width: 100%; color: #c4b5fd; font-size: 13px; font-weight: 700; }
+.toolsControls input { flex: 1 1 280px; min-height: 40px; padding: 9px 12px; border: 1px solid #3b2b58; border-radius: 7px; background: #0d1624; color: #f8fafc; }
+.toolsControls > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.toolsControls button, .toolsTopicActions button { padding: 9px 12px; border: 1px solid #6d4aad; border-radius: 7px; background: #32204e; color: #ede9fe; font-weight: 700; cursor: pointer; }
+.toolsControls button:hover, .toolsTopicActions button:hover { background: #4c2c78; }
+.toolTopic { padding: 0; overflow: hidden; }
+.toolTopic summary { padding: 17px 20px; color: #f5f3ff; font-size: 17px; font-weight: 700; cursor: pointer; list-style: none; background: linear-gradient(135deg, #1e1930, #121a26); }
+.toolTopic summary::-webkit-details-marker { display: none; }
+.toolTopic summary::after { float: right; color: #c4b5fd; content: "+"; font-size: 22px; line-height: .7; }
+.toolTopic[open] summary::after { content: "−"; }
+.toolTopic.isComplete summary { border-left: 4px solid #34d399; }
+.toolsContent { padding: 20px; }
+.toolsTopicActions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.toolsTopicActions span { color: #c4b5fd; font-size: 12px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+.toolsTopicActions button[aria-pressed="true"] { border-color: #34d399; background: #145344; color: #d1fae5; }
+
+@media (max-width: 680px) {
+    .electricalFlow, .toolsFlow { justify-content: flex-start; }
+    .electricalTable, .toolsTable { display: block; overflow-x: auto; }
+    .toolsHeroHeader { display: block; }
+    .toolsProgress { margin-top: 16px; }
+
+    .toolsFlow {
+        flex-direction: column;
+        align-items: stretch;
+        overflow-x: hidden;
+    }
+
+    .toolsFlow span {
+        flex: 0 1 auto;
+        min-width: 0;
+    }
+
+    .toolsFlow b {
+        align-self: center;
+        transform: rotate(90deg);
+    }
+}

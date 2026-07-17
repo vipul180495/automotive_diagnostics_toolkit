@@ -1,0 +1,219 @@
+[
+    {
+        "code": "10",
+        "name": "General Reject",
+        "description": "ECU rejected the request without a specific reason.",
+        "commonCause": [
+            "ECU internal condition",
+            "Unsupported operation"
+        ],
+        "solution": [
+            "Check request format",
+            "Check ECU state"
+        ]
+    },
+    {
+        "code": "11",
+        "name": "Service Not Supported",
+        "description": "Requested UDS service is not supported by ECU.",
+        "commonCause": [
+            "Unsupported SID",
+            "Wrong ECU variant"
+        ],
+        "solution": [
+            "Check ECU diagnostic specification"
+        ]
+    },
+    {
+        "code": "12",
+        "name": "Sub-function Not Supported",
+        "description": "Requested subfunction is not supported.",
+        "commonCause": [
+            "Unsupported session",
+            "Wrong subfunction byte"
+        ],
+        "solution": [
+            "Verify subfunction value"
+        ]
+    },
+    {
+        "code": "13",
+        "name": "Incorrect Message Length Or Invalid Format",
+        "description": "Message length or structure is incorrect.",
+        "commonCause": [
+            "Missing bytes",
+            "Extra bytes",
+            "Wrong format"
+        ],
+        "solution": [
+            "Check UDS request format",
+            "Verify CAN payload"
+        ]
+    },
+    {
+        "code": "21",
+        "name": "Busy Repeat Request",
+        "description": "ECU is busy processing another request.",
+        "commonCause": [
+            "ECU operation running"
+        ],
+        "solution": [
+            "Wait and retry"
+        ]
+    },
+    {
+        "code": "22",
+        "name": "Conditions Not Correct",
+        "description": "Required ECU conditions are not satisfied.",
+        "commonCause": [
+            "Wrong vehicle state",
+            "Battery voltage issue",
+            "Wrong diagnostic session"
+        ],
+        "solution": [
+            "Check preconditions",
+            "Enter correct session"
+        ]
+    },
+    {
+        "code": "31",
+        "name": "Request Out Of Range",
+        "description": "Requested parameter or identifier is not available.",
+        "commonCause": [
+            "Invalid DID",
+            "Invalid Routine ID",
+            "Wrong ECU variant"
+        ],
+        "solution": [
+            "Verify identifier",
+            "Check ECU configuration"
+        ]
+    },
+    {
+        "code": "33",
+        "name": "Security Access Denied",
+        "description": "Security access request was rejected.",
+        "commonCause": [
+            "Invalid seed/key",
+            "Security level locked"
+        ],
+        "solution": [
+            "Perform correct seed-key procedure"
+        ]
+    },
+    {
+        "code": "35",
+        "name": "Invalid Key",
+        "description": "Security key sent by tester is incorrect.",
+        "commonCause": [
+            "Wrong algorithm",
+            "Wrong key"
+        ],
+        "solution": [
+            "Generate correct key"
+        ]
+    },
+    {
+        "code": "36",
+        "name": "Exceeded Number Of Attempts",
+        "description": "Too many failed security attempts.",
+        "commonCause": [
+            "Multiple wrong keys"
+        ],
+        "solution": [
+            "Wait for delay timer"
+        ]
+    },
+    {
+        "code": "37",
+        "name": "Required Time Delay Not Expired",
+        "description": "Security delay timer is still active.",
+        "commonCause": [
+            "Retry too soon"
+        ],
+        "solution": [
+            "Wait required delay"
+        ]
+    },
+    {
+        "code": "78",
+        "name": "Response Pending",
+        "description": "ECU is still processing request.",
+        "commonCause": [
+            "Long routine",
+            "Programming operation"
+        ],
+        "solution": [
+            "Wait for final response"
+        ]
+    },
+    {
+        "code": "14",
+        "name": "Response Too Long",
+        "description": "The ECU cannot send the requested response because it exceeds the available transport/protocol length.",
+        "commonCause": ["Too many DIDs requested together", "Response record exceeds ECU transport capability"],
+        "solution": ["Request fewer DIDs at a time", "Use the ECU-supported transport/protocol configuration"]
+    },
+    {
+        "code": "24",
+        "name": "Request Sequence Error",
+        "description": "The request is out of order for the active diagnostic sequence.",
+        "commonCause": ["SendKey sent before RequestSeed", "Transfer service used before transfer was started"],
+        "solution": ["Restart the required service sequence", "Check the active session and transfer state"]
+    },
+    {
+        "code": "70",
+        "name": "Upload Download Not Accepted",
+        "description": "The ECU did not accept the requested upload or download operation.",
+        "commonCause": ["Invalid address or size", "Programming preconditions not met", "Security access missing"],
+        "solution": ["Verify programming session, address, size, voltage, and security state"]
+    },
+    {
+        "code": "71",
+        "name": "Transfer Data Suspended",
+        "description": "The ECU suspended an active data transfer.",
+        "commonCause": ["Transfer interrupted", "ECU state changed during transfer"],
+        "solution": ["Follow the OEM recovery procedure before retrying the transfer"]
+    },
+    {
+        "code": "72",
+        "name": "General Programming Failure",
+        "description": "A programming-related operation failed in the ECU.",
+        "commonCause": ["Flash write or erase failure", "Invalid data", "Unstable programming conditions"],
+        "solution": ["Stop the procedure safely and follow the approved ECU recovery process"]
+    },
+    {
+        "code": "73",
+        "name": "Wrong Block Sequence Counter",
+        "description": "The TransferData block sequence counter is not the value expected by the ECU.",
+        "commonCause": ["Skipped, repeated, or out-of-order transfer block"],
+        "solution": ["Use the expected counter and restart transfer only as defined by the programming procedure"]
+    },
+    {
+        "code": "7E",
+        "name": "Sub-function Not Supported In Active Session",
+        "description": "The requested sub-function is not supported in the current diagnostic session.",
+        "commonCause": [
+            "Wrong diagnostic session",
+            "Sub-function locked in current session",
+            "ECU security state not satisfied"
+        ],
+        "solution": [
+            "Enter required session using 0x10",
+            "Verify supported sub-functions"
+        ]
+    },
+    {
+        "code": "7F",
+        "name": "Service Not Supported In Active Session",
+        "description": "The requested UDS service is not supported in the current diagnostic session.",
+        "commonCause": [
+            "Service requires programming session",
+            "Service requires extended session"
+        ],
+        "solution": [
+            "Change diagnostic session",
+            "Retry request"
+        ]
+    }
+]
