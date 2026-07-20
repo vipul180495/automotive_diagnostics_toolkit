@@ -89,7 +89,7 @@
             <div id="dashboard" class="page active">
                 <input class="searchBox" placeholder="🔍 Search Diagnostic Data">
                 <div class="cards">
-                    <div class="card">
+                    <button type="button" class="card dashboardCard" onclick="openDashboardPage('ecu')">
 
                         <h3>
                             ECU Modules
@@ -99,8 +99,8 @@
                             0
                         </h1>
 
-                    </div>
-                    <div class="card">
+                    </button>
+                    <button type="button" class="card dashboardCard" onclick="openDashboardPage('dtc')">
 
                         <h3>
                             DTC Library
@@ -110,8 +110,8 @@
                             0
                         </h1>
 
-                    </div>
-                    <div class="card">
+                    </button>
+                    <button type="button" class="card dashboardCard" onclick="openDashboardPage('did')">
 
                         <h3>
                             DIDs
@@ -121,8 +121,8 @@
                             0
                         </h1>
 
-                    </div>
-                    <div class="card">
+                    </button>
+                    <button type="button" class="card dashboardCard" onclick="openDashboardPage('uds')">
 
                         <h3>
                             UDS Services
@@ -132,8 +132,8 @@
                             0
                         </h1>
 
-                    </div>
-                    <div class="card">
+                    </button>
+                    <button type="button" class="card dashboardCard" onclick="openDashboardPage('nrc')">
 
                         <h3>
                             NRC Codes
@@ -143,7 +143,7 @@
                             0
                         </h1>
 
-                    </div>
+                    </button>
                 </div>
             </div>
             <!-- DTC -->

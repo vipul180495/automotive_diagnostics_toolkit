@@ -974,6 +974,37 @@ HEX TOOLBOX
     background: #121a26;
 }
 
+.ecuPurpose {
+    padding: 12px;
+    border-left: 3px solid #fbbf24;
+    border-radius: 6px;
+    background: #172235;
+    color: #dbeafe;
+    line-height: 1.55;
+}
+
+.dashboardCard {
+    width: 100%;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.dashboardCard::after {
+    display: block;
+    margin-top: 12px;
+    color: #93c5fd;
+    content: "Open section →";
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.dashboardCard:focus-visible {
+    outline: 3px solid #7dd3fc;
+    outline-offset: 3px;
+}
+
 .learningIntro {
     background:
         radial-gradient(circle at top right, rgba(59, 130, 246, 0.22), transparent 42%),
