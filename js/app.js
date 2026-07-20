@@ -19,3 +19,13 @@ function showPage(page, btn) {
         });
     btn.classList.add("active");
 }
+
+function openDashboardPage(page) {
+    const targetButton = [...document.querySelectorAll(".menu button")]
+        .find(button => button.getAttribute("onclick")
+            .includes("showPage('" + page + "'"));
+
+    if (targetButton) {
+        showPage(page, targetButton);
+    }
+}
