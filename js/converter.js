@@ -5,22 +5,44 @@
 // HEX TO ASCII
 // ===============================
 
+function parseHexBytes(input) {
+    const normalized = input
+        .trim()
+        .replace(/0x/gi, "")
+        .replace(/[\s,;:_-]+/g, "");
+
+    if (!normalized || !/^[0-9A-Fa-f]+$/.test(normalized) || normalized.length % 2 !== 0) {
+        return null;
+    }
+
+    return normalized.match(/.{2}/g);
+}
+
+function showHexInputError(resultId) {
+    document.getElementById(resultId).textContent =
+        "Enter complete hexadecimal bytes, for example: 59 49 4E or 59494E.";
+}
+
+function escapeHtml(value) {
+    return value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
 function hexToASCII() {
 
-    let input = document
+    const input = document
         .getElementById("hexASCIIInput")
-        .value
-        .trim()
-        .toUpperCase();
-    if (input == "") {
-
-        document.getElementById("asciiResult").innerHTML =
-            "Please enter HEX data";
-
+        .value;
+    const bytes = parseHexBytes(input);
+    if (!bytes) {
+        showHexInputError("asciiResult");
         return;
-
     }
-    let bytes = input.split(/\s+/);
+
     let output = "";
     bytes.forEach(byte => {
         let decimal = parseInt(byte, 16);
@@ -44,7 +66,7 @@ function hexToASCII() {
     </h4>
     <div class="hexBox">
 
-    ${output}
+    ${escapeHtml(output)}
 
     </div>
     </div>
@@ -55,18 +77,15 @@ function hexToASCII() {
 // HEX TO BINARY
 // ===============================
 function hexToBinary() {
-    let input = document
+    const input = document
         .getElementById("hexBinaryInput")
-        .value
-        .trim()
-        .toUpperCase();
-    if (input == "") {
-        document.getElementById("binaryResult").innerHTML =
-            "Please enter HEX data";
+        .value;
+    const bytes = parseHexBytes(input);
+    if (!bytes) {
+        showHexInputError("binaryResult");
         return;
-
     }
-    let bytes = input.split(/\s+/);
+
     let output = "";
     bytes.forEach(byte => {
         let binary = parseInt(byte, 16)
