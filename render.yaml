@@ -1,5 +1,5 @@
 services:
   - type: web
-    name: automotive-diagnostic-toolkit
+    name: automotive-diagnostic-toolkit-lite
     runtime: static
     staticPublishPath: .

@@ -48,23 +48,11 @@
             <button type="button" onclick="showPage('ecu',this)">
                 🚗 ECU Modules
             </button>
-            <button type="button" onclick="showPage('ecuFundamentals',this)">
-                🧠 ECU Fundamentals
-            </button>
-            <button type="button" onclick="showPage('electricalFundamentals',this)">
-                ⚡ ECU Electrical Basics
-            </button>
-            <button type="button" onclick="showPage('automotiveTools',this)">
-                🛠️ Automotive Tools
-            </button>
             <button type="button" onclick="showPage('decoder',this)">
                 🧮 UDS Decoder
             </button>
             <button type="button" onclick="showPage('can',this)">
                 📶 CAN Reference
-            </button>
-            <button type="button" onclick="showPage('learning',this)">
-                🎓 Learning Center
             </button>
             <!--<button type="button"
             onclick="showPage('notes',this)">
@@ -87,7 +75,7 @@
         <div class="header">
 
             <h1>
-                Automotive Diagnostic Toolkit
+                Automotive Diagnostic Toolkit Lite
             </h1>
             <div class="version">
                 Version 1.0
@@ -214,24 +202,6 @@
                     onkeyup="searchECU()">
                 <div id="ecuContainer"></div>
             </div>
-            <!-- ECU FUNDAMENTALS -->
-            <div id="ecuFundamentals" class="page">
-                <h2>ECU Fundamentals</h2>
-                <br>
-                <div id="ecuFundamentalsContainer"></div>
-            </div>
-            <!-- ECU ELECTRICAL FUNDAMENTALS -->
-            <div id="electricalFundamentals" class="page">
-                <h2>ECU Electrical Basics</h2>
-                <br>
-                <div id="electricalFundamentalsContainer"></div>
-            </div>
-            <!-- AUTOMOTIVE TOOLS -->
-            <div id="automotiveTools" class="page">
-                <h2>Automotive Engineering Tools</h2>
-                <br>
-                <div id="automotiveToolsContainer"></div>
-            </div>
             <!-- UDS DECODER -->
 
             <div id="decoder" class="page">
@@ -264,11 +234,6 @@
                 </button>
                 <br><br>
                 <div id="canResult"></div>
-            </div>
-            <div id="learning" class="page">
-                <h2>CAN, UDS & AUTOSAR Learning Center</h2>
-                <br>
-                <div id="learningContainer"></div>
             </div>
             <!-- HEX TOOLBOX -->
 
@@ -599,15 +564,11 @@
     <script src="js/did.js"></script>
     <script src="js/nrc.js"></script>
     <script src="js/ecu.js"></script>
-    <script src="js/ecu-fundamentals.js"></script>
-    <script src="js/electrical-fundamentals.js"></script>
-    <script src="js/automotive-tools.js"></script>
     <script src="js/decoder.js"></script>
     <script src="js/can.js"></script>
     <script src="js/links.js"></script>
     <script src="js/converter.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/learning.js"></script>
 </body>
 
 </html>
