@@ -110,6 +110,45 @@ function hexToBinary() {
     `;
 }
 // ===============================
+// BINARY TO HEX
+// ===============================
+function binaryToHex() {
+    const input = document
+        .getElementById("binaryHexInput")
+        .value;
+    const normalized = input
+        .trim()
+        .replace(/0b/gi, "")
+        .replace(/[\s,;:_-]+/g, "");
+
+    if (!normalized || !/^[01]+$/.test(normalized)) {
+        document.getElementById("binaryHexResult").textContent =
+            "Enter binary digits only, for example: 11110001 or 1111 0001.";
+        return;
+    }
+
+    const padded = normalized.padStart(Math.ceil(normalized.length / 4) * 4, "0");
+    const hex = padded.match(/.{4}/g)
+        .map(nibble => parseInt(nibble, 2).toString(16).toUpperCase())
+        .join("");
+
+    document.getElementById("binaryHexResult").innerHTML = `
+
+    <div class="decoderSection">
+    <h4>
+    Hex Result
+    </h4>
+    <div class="hexBox">
+
+    ${hex}
+
+    </div>
+    </div>
+
+    `;
+}
+
+// ===============================
 // BINARY TO DECIMAL
 // ===============================
 function binaryToDecimal() {
